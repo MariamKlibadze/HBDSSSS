@@ -1,0 +1,860 @@
+
+
+.button-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    /* dynamic viewport height: excludes mobile browser chrome */
+    box-sizing: border-box;
+    background: radial-gradient(circle at 20% 20%, #f0fff4, transparent 40%), linear-gradient(180deg, #e8fff2, #f0fff5);
+    align-items: flex-start;
+    padding-top: 50%;
+}
+
+/* ── Ring wrapper ── */
+.frog-ring-wrap {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.orbit-text {
+    font-size: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    fill: #1e6e40;
+    letter-spacing: 2px;
+}
+
+/* ── Baby jumping frog ── */
+.baby-frog {
+    position: absolute;
+    bottom: -70px;
+    left: calc(50% - 18px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    pointer-events: auto;
+    cursor: pointer;
+    animation: frogJump 2.4s ease-in-out infinite;
+}
+
+.baby-frog-emoji {
+    font-size: 36px;
+    line-height: 1;
+    display: block;
+}
+
+.baby-frog-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e6e40;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+@keyframes frogJump {
+
+    /* crouch at left */
+    0% {
+        transform: translateX(-10px) translateY(0) scaleY(0.75) scaleX(1.25);
+    }
+
+    /* leap right */
+    10% {
+        transform: translateX(-10px) translateY(-32px) scaleY(1.1) scaleX(0.9);
+    }
+
+    30% {
+        transform: translateX(50px) translateY(-32px) scaleY(1.1) scaleX(0.9);
+    }
+
+    /* land right, pause */
+    38% {
+        transform: translateX(50px) translateY(0) scaleY(0.75) scaleX(1.25);
+    }
+
+    48% {
+        transform: translateX(50px) translateY(0) scaleY(0.75) scaleX(1.25);
+    }
+
+    /* leap left */
+    58% {
+        transform: translateX(50px) translateY(-32px) scaleY(1.1) scaleX(0.9);
+    }
+
+    78% {
+        transform: translateX(-50px) translateY(-32px) scaleY(1.1) scaleX(0.9);
+    }
+
+    /* land left, pause */
+    88% {
+        transform: translateX(-10px) translateY(0) scaleY(0.75) scaleX(1.25);
+    }
+
+    100% {
+        transform: translateX(-50px) translateY(0) scaleY(0.75) scaleX(1.25);
+    }
+}
+
+.baby-frog-popup {
+
+    left: 50%;
+    transform: translateX(-50%);
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+    width: 190px;
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
+    padding: 12px 14px 10px;
+}
+
+.baby-frog-popup .msg-heart {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.baby-frog-popup .msg-text {
+    font-size: 12px;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 11px;
+    top: 5px;
+    right: 7px;
+}
+
+/* ── Big red X ── */
+.big-x {
+    position: absolute;
+    top: -68px;
+    left: calc(50% - 148px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    pointer-events: auto;
+    user-select: none;
+}
+
+.big-x-icon {
+    font-size: 52px;
+    font-weight: 900;
+    color: #e00;
+    line-height: 1;
+    text-shadow: 0 3px 10px rgba(200, 0, 0, 0.35);
+    transition: transform 150ms ease;
+}
+
+.big-x:hover .big-x-icon {
+    transform: scale(1.15);
+}
+
+.big-x-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c00;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.3px;
+    text-shadow: none;
+}
+
+.no-click-popup {
+    /* shift left to appear near the X instead of center */
+    left: calc(50% - 148px);
+    transform: none;
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.no-click2-popup {
+    left: calc(50% - 188px);
+    top: -320px;
+    transform: none;
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.inner-x-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    background: none;
+    border: 2px solid #c00;
+    border-radius: 20px;
+    padding: 5px 14px;
+    cursor: pointer;
+    transition: background 150ms ease;
+}
+
+.inner-x-btn:hover {
+    background: #fff0f0;
+}
+
+.inner-x-icon {
+    font-size: 18px;
+    font-weight: 900;
+    color: #c00;
+    line-height: 1;
+}
+
+.inner-x-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #c00;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── Lips button ── */
+.lips-btn {
+    position: absolute;
+    top: -68px;
+    left: calc(50% + 90px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: auto;
+    user-select: none;
+    animation: lipsWiggle 2.2s ease-in-out infinite;
+}
+
+.lips-icon {
+    font-size: 52px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 10px rgba(180, 0, 60, 0.35));
+    transition: transform 150ms ease;
+}
+
+.lips-btn:hover .lips-icon {
+    transform: scale(1.18);
+}
+
+.lips-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c0003a;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+@keyframes lipsWiggle {
+
+    0%,
+    100% {
+        transform: rotate(-4deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(4deg) scale(1.06);
+    }
+}
+
+.lips-popup {
+    left: calc(50% + 60px);
+    transform: none;
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+/* ── Message popup ── */
+.msg-popup {
+    position: absolute;
+    top: -210px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
+    padding: 22px 24px 18px;
+    width: 230px;
+    max-width: calc(100vw - 24px);
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 20;
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+    border: 1.5px solid #ffe0e0;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.msg-heart {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.msg-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.msg-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+    padding: 2px 4px;
+}
+
+.msg-close:hover {
+    color: #333;
+}
+
+/* ── Envelope ── */
+.envelope {
+    position: absolute;
+    top: -95px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 108px;
+    height: 74px;
+    z-index: 10;
+    animation: envBob 2.6s ease-in-out infinite;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+@keyframes envBob {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px) rotate(2deg);
+    }
+}
+
+/* White box body */
+.envelope-body {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    overflow: hidden;
+}
+
+/* Left diagonal fold line */
+.envelope-fold-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 42px 0 0 54px;
+    border-color: transparent transparent transparent #f0f0f0;
+}
+
+/* Right diagonal fold line */
+.envelope-fold-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 42px 54px 0 0;
+    border-color: transparent #f0f0f0 transparent transparent;
+}
+
+/* Bottom center V */
+.envelope-fold-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    background: #fafafa;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Flap (top triangle, pointing down) */
+.envelope-flap {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 88%);
+    z-index: 2;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Text inside envelope */
+.envelope-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    font-weight: 800;
+    color: #c0392b;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    z-index: 3;
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Heart seal sits over flap tip */
+.heart-seal {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    z-index: 5;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(180, 0, 0, 0.35));
+}
+
+/* ── Frog body ── */
+.frog-button {
+    position: relative;
+    width: 210px;
+    height: 175px;
+    background: linear-gradient(160deg, #5dd87a 0%, #2e8b57 75%);
+    border-radius: 50% 50% 42% 42% / 38% 38% 55% 55%;
+    border: 3px solid #1e6e40;
+    cursor: pointer;
+    box-shadow: 0 14px 32px rgba(46, 139, 87, 0.28), inset 0 -5px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 22px;
+    overflow: visible;
+    animation: jiggle 2s infinite ease-in-out;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.frog-button:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 26px 50px rgba(46, 139, 87, 0.3);
+}
+
+.frog-button:active {
+    transform: translateY(-2px) scale(0.97);
+    box-shadow: 0 10px 20px rgba(46, 139, 87, 0.2);
+}
+
+/* ── Eyes (protrude above body) ── */
+.frog-eyes {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 148px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.frog-eye {
+    width: 52px;
+    height: 52px;
+    background: radial-gradient(circle at 35% 30%, #72ed91, #2e8b57);
+    border-radius: 50%;
+    border: 3px solid #1e6e40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
+.pupil {
+    width: 24px;
+    height: 24px;
+    background: #111;
+    border-radius: 50%;
+    position: relative;
+}
+
+.pupil::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+/* ── Nostrils ── */
+.frog-nostrils {
+    display: flex;
+    gap: 26px;
+    margin-bottom: 6px;
+}
+
+.frog-nostrils span {
+    width: 9px;
+    height: 6px;
+    background: #1a6b38;
+    border-radius: 50%;
+}
+
+/* ── Mouth / smile ── */
+.frog-mouth {
+    width: 96px;
+    height: 22px;
+    border-bottom: 4px solid #1a6b38;
+    border-radius: 0 0 70px 70px;
+    margin-bottom: 8px;
+}
+
+/* ── Label ── */
+.frog-label {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+@keyframes jiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    8% {
+        transform: rotate(-6deg);
+    }
+
+    15% {
+        transform: rotate(6deg);
+    }
+
+    23% {
+        transform: rotate(-4deg);
+    }
+
+    32% {
+        transform: rotate(3deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Video modal */
+.video-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.video-modal {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
+    border: 1.5px solid #ffe0e0;
+    padding: 14px;
+    max-width: 90vw;
+    overflow: hidden;
+    animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.video-modal video {
+    display: block;
+    max-width: min(80vw, 640px);
+    max-height: 70vh;
+    border-radius: 10px;
+}
+
+/* old .close-btn kept for nothing — using .msg-close now */
+
+/* Fireworks canvas */
+.fireworks-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 500;
+}
+
+.button-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Samsung Galaxy S25 / small phones (≤430px) ── */
+@media (max-width: 430px) {
+
+    /* Small screens: ensure clean centering */
+    .button-wrap {
+        align-items: center;
+    }
+
+    /* Shrink the orbit ring wrapper */
+    .frog-ring-wrap {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Orbit text */
+    .orbit-text {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    /* Frog body */
+    .frog-button {
+        width: 158px;
+        height: 132px;
+        padding-bottom: 16px;
+    }
+
+    /* Eyes */
+    .frog-eyes {
+        width: 112px;
+        top: -28px;
+    }
+
+    .frog-eye {
+        width: 40px;
+        height: 40px;
+    }
+
+    .pupil {
+        width: 17px;
+        height: 17px;
+    }
+
+    .pupil::after {
+        width: 6px;
+        height: 6px;
+        top: 3px;
+        left: 4px;
+    }
+
+    /* Nostrils */
+    .frog-nostrils {
+        gap: 18px;
+        margin-bottom: 4px;
+    }
+
+    .frog-nostrils span {
+        width: 7px;
+        height: 5px;
+    }
+
+    /* Mouth */
+    .frog-mouth {
+        width: 74px;
+        height: 16px;
+        margin-bottom: 5px;
+    }
+
+    /* Label */
+    .frog-label {
+        font-size: 14px;
+    }
+
+    /* ── Envelope ── */
+    .envelope {
+        top: -76px;
+        width: 88px;
+        height: 60px;
+    }
+
+    .envelope-flap {
+        height: 40px;
+    }
+
+    .envelope-fold-left {
+        border-width: 34px 0 0 44px;
+    }
+
+    .envelope-fold-right {
+        border-width: 34px 44px 0 0;
+    }
+
+    .envelope-fold-bottom {
+        height: 34px;
+    }
+
+    .heart-seal {
+        font-size: 20px;
+        top: 20px;
+    }
+
+    .envelope-text {
+        font-size: 9px;
+    }
+
+    /* ── X button – pull in closer to frog ── */
+    .big-x {
+        top: -52px;
+        left: calc(50% - 116px);
+    }
+
+    .big-x-icon {
+        font-size: 38px;
+    }
+
+    .big-x-label {
+        font-size: 9px;
+    }
+
+    /* ── Lips button – pull in closer to frog ── */
+    .lips-btn {
+        top: -52px;
+        left: calc(50% + 68px);
+    }
+
+    .lips-icon {
+        font-size: 38px;
+    }
+
+    .lips-label {
+        font-size: 9px;
+    }
+
+    /* ── Baby frog ── */
+    .baby-frog {
+        bottom: -56px;
+    }
+
+    .baby-frog-emoji {
+        font-size: 28px;
+    }
+
+    .baby-frog-text {
+        font-size: 10px;
+    }
+
+    /* ── Message popup (envelope) – centred, fits screen ── */
+    .msg-popup {
+        width: 195px;
+        max-width: calc(100vw - 24px);
+        box-sizing: border-box;
+        top: -180px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 16px 12px;
+    }
+
+    .msg-text {
+        font-size: 13px;
+    }
+
+    /* ── No-click popup – centred, keeps on screen ── */
+    .no-click-popup {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 175px;
+        max-width: calc(100vw - 24px);
+        box-sizing: border-box;
+    }
+
+    /* ── No-click-2 deeper popup ── */
+    .no-click2-popup {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -270px;
+        width: 175px;
+        max-width: calc(100vw - 24px);
+        box-sizing: border-box;
+    }
+
+    /* ── Lips popup – shift left so it doesn't bleed off screen ── */
+    .lips-popup {
+        left: calc(50% - 10px);
+        width: 175px;
+        max-width: calc(100vw - 24px);
+        box-sizing: border-box;
+    }
+
+    /* popIn keyframe overrides for small screen */
+    .no-click-popup,
+    .no-click2-popup {
+        /* now centred, so popIn (which bakes in translateX(-50%)) works */
+        animation: popIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    .lips-popup {
+        animation: popInSimple 220ms cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* ── Baby frog popup ── */
+    .baby-frog-popup {
+        width: 170px;
+        max-width: calc(100vw - 24px);
+    }
+
+    /* ── Video modal ── */
+    .video-modal video {
+        max-width: 92vw;
+        max-height: 62vh;
+    }
+}
+
+@keyframes popInSimple {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
